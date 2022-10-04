@@ -1,0 +1,13 @@
+C:\Users\user\source\repos\triangle_test\bin\Debug\netcoreapp3.1\triangle_test.exe
+C:\Users\user\source\repos\triangle_test\bin\Debug\netcoreapp3.1\triangle_test.deps.json
+C:\Users\user\source\repos\triangle_test\bin\Debug\netcoreapp3.1\triangle_test.runtimeconfig.json
+C:\Users\user\source\repos\triangle_test\bin\Debug\netcoreapp3.1\triangle_test.runtimeconfig.dev.json
+C:\Users\user\source\repos\triangle_test\bin\Debug\netcoreapp3.1\triangle_test.dll
+C:\Users\user\source\repos\triangle_test\bin\Debug\netcoreapp3.1\triangle_test.pdb
+C:\Users\user\source\repos\triangle_test\obj\Debug\netcoreapp3.1\triangle_test.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\triangle_test\obj\Debug\netcoreapp3.1\triangle_test.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\triangle_test\obj\Debug\netcoreapp3.1\triangle_test.AssemblyInfo.cs
+C:\Users\user\source\repos\triangle_test\obj\Debug\netcoreapp3.1\triangle_test.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\triangle_test\obj\Debug\netcoreapp3.1\triangle_test.dll
+C:\Users\user\source\repos\triangle_test\obj\Debug\netcoreapp3.1\triangle_test.pdb
+C:\Users\user\source\repos\triangle_test\obj\Debug\netcoreapp3.1\triangle_test.genruntimeconfig.cache

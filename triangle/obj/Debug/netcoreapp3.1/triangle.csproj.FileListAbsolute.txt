@@ -1,0 +1,13 @@
+C:\Users\user\source\repos\triangle\bin\Debug\netcoreapp3.1\triangle.exe
+C:\Users\user\source\repos\triangle\bin\Debug\netcoreapp3.1\triangle.deps.json
+C:\Users\user\source\repos\triangle\bin\Debug\netcoreapp3.1\triangle.runtimeconfig.json
+C:\Users\user\source\repos\triangle\bin\Debug\netcoreapp3.1\triangle.runtimeconfig.dev.json
+C:\Users\user\source\repos\triangle\bin\Debug\netcoreapp3.1\triangle.dll
+C:\Users\user\source\repos\triangle\bin\Debug\netcoreapp3.1\triangle.pdb
+C:\Users\user\source\repos\triangle\obj\Debug\netcoreapp3.1\triangle.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\triangle\obj\Debug\netcoreapp3.1\triangle.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\triangle\obj\Debug\netcoreapp3.1\triangle.AssemblyInfo.cs
+C:\Users\user\source\repos\triangle\obj\Debug\netcoreapp3.1\triangle.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\triangle\obj\Debug\netcoreapp3.1\triangle.dll
+C:\Users\user\source\repos\triangle\obj\Debug\netcoreapp3.1\triangle.pdb
+C:\Users\user\source\repos\triangle\obj\Debug\netcoreapp3.1\triangle.genruntimeconfig.cache
