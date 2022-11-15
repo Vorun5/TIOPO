@@ -1,0 +1,10 @@
+http://links.qatl.ru/	200
+http://links.qatl.ru/blog-single.html	200
+http://links.qatl.ru/contact.html	200
+http://links.qatl.ru/blog.html	200
+http://links.qatl.ru/pricing.html	200
+http://links.qatl.ru/work.html	200
+http://links.qatl.ru/about.html	200
+http://links.qatl.ru/links/no204content.php	204
+http://links.qatl.ru/index.html	200
+Count: 9 | Start: 1:49:9 | Final: 1:49:15

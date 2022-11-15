@@ -1,21 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Desktop\\TIOPO\\triangle\\triangle_test\\triangle_test.csproj": {}
+    "C:\\Users\\user\\Desktop\\links\\links\\links.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Desktop\\TIOPO\\triangle\\triangle_test\\triangle_test.csproj": {
+    "C:\\Users\\user\\Desktop\\links\\links\\links.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Desktop\\TIOPO\\triangle\\triangle_test\\triangle_test.csproj",
-        "projectName": "triangle_test",
-        "projectPath": "C:\\Users\\user\\Desktop\\TIOPO\\triangle\\triangle_test\\triangle_test.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\links\\links\\links.csproj",
+        "projectName": "links",
+        "projectPath": "C:\\Users\\user\\Desktop\\links\\links\\links.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Desktop\\TIOPO\\triangle\\triangle_test\\obj\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\links\\links\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"
         ],
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,6 +45,20 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "AngleSharp": {
+              "target": "Package",
+              "version": "[0.17.1, )"
+            },
+            "HtmlAgilityPack": {
+              "target": "Package",
+              "version": "[1.11.46, )"
+            },
+            "System.Xml.XPath": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

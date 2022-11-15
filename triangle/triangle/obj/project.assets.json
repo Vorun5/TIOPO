@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\source\\repos\\triangle\\triangle.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Desktop\\TIOPO\\triangle\\triangle\\triangle.csproj",
       "projectName": "triangle",
-      "projectPath": "C:\\Users\\user\\source\\repos\\triangle\\triangle.csproj",
+      "projectPath": "C:\\Users\\user\\Desktop\\TIOPO\\triangle\\triangle\\triangle.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\source\\repos\\triangle\\obj\\",
+      "outputPath": "C:\\Users\\user\\Desktop\\TIOPO\\triangle\\triangle\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
