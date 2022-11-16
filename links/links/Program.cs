@@ -10,12 +10,12 @@ var link = Console.ReadLine();
 
 var lc = new LinkChecker(link);
 var startDate = DateTime.Now;
-lc.CheckAllDomainLinks();
+await lc.CheckAllDomainLinks();
 var finalDate = DateTime.Now; 
 
 
-const string validLinksPath = "valid2.txt";
-const string invalidLinksPath = "invalid2.txt";
+const string validLinksPath = "valid_travelline.txt";
+const string invalidLinksPath = "invalid_travelline.txt";
 
 
 await using (var writer = new StreamWriter(validLinksPath, false))

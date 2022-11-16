@@ -1,0 +1,11 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">C:\Users\user\AppData\Local\JetBrains\Rider2022.2\resharper-host\temp\Rider\vAny\CoverageData\_tv.1806025845\Snapshot\snapshot.utdcvr</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=abdbe521_002D9c9e_002D49d2_002D8a58_002D75a10d4aaad9/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TvInitializationTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::6082A09F-F44D-4A08-AFC6-1E94599DAB45::.NETCoreApp,Version=v3.1::tv_tests.TvInitializationTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::6082A09F-F44D-4A08-AFC6-1E94599DAB45::.NETCoreApp,Version=v3.1::tv_tests.TvMethodsTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ff9867d8_002Db253_002D45f7_002Db4b1_002D5fb86dc1e694/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="AddChannel_there_will_be_an_exception_when_trying_to_add_a_channel_with_an_empty_name" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\user\Desktop\TIOPO\tv\tv_tests" Presentation="&amp;lt;tv_tests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

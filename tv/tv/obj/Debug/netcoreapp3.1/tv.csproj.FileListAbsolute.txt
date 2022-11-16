@@ -1,0 +1,13 @@
+C:\Users\user\Desktop\TIOPO\tv\tv\bin\Debug\netcoreapp3.1\tv.exe
+C:\Users\user\Desktop\TIOPO\tv\tv\bin\Debug\netcoreapp3.1\tv.deps.json
+C:\Users\user\Desktop\TIOPO\tv\tv\bin\Debug\netcoreapp3.1\tv.runtimeconfig.json
+C:\Users\user\Desktop\TIOPO\tv\tv\bin\Debug\netcoreapp3.1\tv.runtimeconfig.dev.json
+C:\Users\user\Desktop\TIOPO\tv\tv\bin\Debug\netcoreapp3.1\tv.dll
+C:\Users\user\Desktop\TIOPO\tv\tv\bin\Debug\netcoreapp3.1\tv.pdb
+C:\Users\user\Desktop\TIOPO\tv\tv\obj\Debug\netcoreapp3.1\tv.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\TIOPO\tv\tv\obj\Debug\netcoreapp3.1\tv.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\TIOPO\tv\tv\obj\Debug\netcoreapp3.1\tv.AssemblyInfo.cs
+C:\Users\user\Desktop\TIOPO\tv\tv\obj\Debug\netcoreapp3.1\tv.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\TIOPO\tv\tv\obj\Debug\netcoreapp3.1\tv.dll
+C:\Users\user\Desktop\TIOPO\tv\tv\obj\Debug\netcoreapp3.1\tv.pdb
+C:\Users\user\Desktop\TIOPO\tv\tv\obj\Debug\netcoreapp3.1\tv.genruntimeconfig.cache

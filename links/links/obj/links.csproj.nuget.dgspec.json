@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Desktop\\links\\links\\links.csproj": {}
+    "C:\\Users\\user\\Desktop\\TIOPO\\links\\links\\links.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Desktop\\links\\links\\links.csproj": {
+    "C:\\Users\\user\\Desktop\\TIOPO\\links\\links\\links.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Desktop\\links\\links\\links.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\TIOPO\\links\\links\\links.csproj",
         "projectName": "links",
-        "projectPath": "C:\\Users\\user\\Desktop\\links\\links\\links.csproj",
+        "projectPath": "C:\\Users\\user\\Desktop\\TIOPO\\links\\links\\links.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Desktop\\links\\links\\obj\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\TIOPO\\links\\links\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

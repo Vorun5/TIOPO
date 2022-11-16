@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using HtmlAgilityPack;
 
 
@@ -14,7 +15,7 @@ namespace links
         private readonly string _domain;
         private readonly HttpClient _client;
         private readonly HashSet<string> _set;
-        
+
         public LinkChecker(string d)
         {
             var uri = new Uri(d);
@@ -23,10 +24,12 @@ namespace links
                 Console.WriteLine(d, " not valid uri. Ex https://google.com");
                 return;
             }
+
             _domain = d;
             var handler = new HttpClientHandler() { AutomaticDecompression = DecompressionMethods.All };
             _client = new HttpClient(handler) { DefaultRequestVersion = HttpVersion.Version20 };
-            _client.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36");
+            _client.DefaultRequestHeaders.UserAgent.ParseAdd(
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36");
             _client.BaseAddress = uri;
         }
 
@@ -53,15 +56,18 @@ namespace links
             }
         }
 
-        private static IEnumerable<string> GetLinksFromPage(string link, Uri domain)
+        private async Task<IEnumerable<string>> GetLinksFromPage(string link, Uri domain)
         {
             try
             {
-                var client = new WebClient();
-                var html = client.DownloadString(link);
-                
+                using var request = new HttpRequestMessage(HttpMethod.Get, link);
+                using var response = await _client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
                 var htmlSnippet = new HtmlDocument();
-                htmlSnippet.LoadHtml(html);
+                if (!(!response.IsSuccessStatusCode || response.Content == null ||
+                      response.Content.Headers.ContentType.MediaType != "text/html"))
+                {
+                    htmlSnippet.LoadHtml(await response.Content.ReadAsStringAsync());
+                }
 
                 var links = new List<string>();
 
@@ -71,34 +77,11 @@ namespace links
                     var validLink = GetUrlPath(href.Value, domain);
                     if (validLink != "")
                     {
-                        links.Add(validLink);   
+                        links.Add(validLink);
                     }
                 }
 
                 return links;
-                
-                // var reHref = new Regex(@"(?inx)
-                //  <a \s [^>]*
-                //     href \s* = \s*
-                //        (?<q> ['""] )
-                //            (?<url> [^""]+ )
-                //       \k<q>
-                //  [^>]* >");
-                //
-                // var hrefTags = new HashSet<string>();
-                // foreach (Match match in reHref.Matches(htmlCode)) hrefTags.Add(match.Groups["url"].ToString());
-                // var links = new HashSet<string>();
-                // foreach (var hrefTag in hrefTags)
-                // {
-                //     var validLink = GetUrlPath(hrefTag, domain);
-                //     if (validLink != "")
-                //     {
-                //         links.Add(GetUrlPath(hrefTag, domain));
-                //     }
-                // }
-                //
-                //
-                // return links; 
             }
             catch (Exception)
             {
@@ -113,7 +96,7 @@ namespace links
             // return !((status / 400 == 1) && (status % 400 < 100));
         }
 
-        public void CheckAllDomainLinks()
+        public async Task CheckAllDomainLinks()
         {
             try
             {
@@ -137,7 +120,7 @@ namespace links
                     if (IsValidLink(status))
                     {
                         ValidLinks.Add(s, status);
-                        var links = GetLinksFromPage(s, uri);
+                        var links = await GetLinksFromPage(s, uri);
                         foreach (var link in links.Where(link => !verifiedUrls.Contains(link)))
                         {
                             unverifiedUrls.Add(link);
