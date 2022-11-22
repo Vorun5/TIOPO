@@ -4,13 +4,13 @@ using System.Linq;
 
 namespace tv
 {
-    public class Tv
+    public class TV
     {
         private bool _turnedOn;
         private ushort _selectedChannel;
         private readonly Dictionary<ushort, string> _channels;
 
-        public Tv(Dictionary<ushort, string> channels)
+        public TV(Dictionary<ushort, string> channels)
         {
             if (channels.Count <= 0)
             {

@@ -10,6 +10,6 @@ var channel = new Dictionary<ushort, string>()
 };
 const string defaultState = "Tv turned on: false\nSelected TV channel: 2-NTV\n";
             
-var tv = new Tv(channel);
+var tv = new TV(channel);
 
 Console.WriteLine(tv.Info());

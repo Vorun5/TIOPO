@@ -14,14 +14,13 @@ namespace links
     {
         private readonly string _domain;
         private readonly HttpClient _client;
-        private readonly HashSet<string> _set;
 
         public LinkChecker(string d)
         {
             var uri = new Uri(d);
             if (!IsUrl(uri.OriginalString))
             {
-                Console.WriteLine(d, " not valid uri. Ex https://google.com");
+                Console.WriteLine(d, " not valid link. Ex https://google.com");
                 return;
             }
 
@@ -75,7 +74,7 @@ namespace links
                 {
                     var href = a.Attributes["href"];
                     var validLink = GetUrlPath(href.Value, domain);
-                    if (validLink != "")
+                    if (!string.IsNullOrEmpty(validLink))
                     {
                         links.Add(validLink);
                     }

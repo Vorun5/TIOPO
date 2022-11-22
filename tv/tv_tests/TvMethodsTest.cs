@@ -7,7 +7,7 @@ namespace tv_tests
 {
     public class TvMethodsTest
     {
-        private Tv _tv;
+        private TV _tv;
         private string _defaultStateTurnedOff;
         private string _defaultStateTurnedOn;
         private Dictionary<ushort, string> _channels;
@@ -26,114 +26,217 @@ namespace tv_tests
 
             _defaultStateTurnedOff = $"Tv turned on: False\nSelected TV channel: {_channel.Key}-{_channel.Value}";
             _defaultStateTurnedOn = $"Tv turned on: True\nSelected TV channel: {_channel.Key}-{_channel.Value}";
-            _tv = new Tv(_channels);
+            _tv = new TV(_channels);
         }
 
         [Test]
-        public void TurnOn_should_turn_on_the_TV_and_return_true_if_it_is_on_and_false_otherwise()
+        public void TurnOn_should_return_true_TV_was_turned_off()
         {
-            Assert.True(_tv.TurnOn());
-            Assert.That(_defaultStateTurnedOn, Is.EqualTo(_tv.Info()).NoClip);
-            Assert.False(_tv.TurnOn());
-            Assert.That(_defaultStateTurnedOn, Is.EqualTo(_tv.Info()).NoClip);
+            var turnedOn = _tv.TurnOn();
+            
+            Assert.True(turnedOn);
+            Assert.That(_defaultStateTurnedOn, Is.EqualTo( _tv.Info()).NoClip);
+        }
+        
+        [Test]
+        public void TurnOn_should_return_true_on_the_TV_if_it_was_turned_off()
+        {
+            var turnOn =_tv.TurnOn();
+
+            Assert.True(turnOn);
+            Assert.That(_defaultStateTurnedOn, Is.EqualTo( _tv.Info()).NoClip);
         }
 
         [Test]
-        public void TurnOff_should_turn_off_the_TV_and_return_true_if_it_is_off_and_false_otherwise()
+        public void TurnOn_should_return_false_on_the_TV_if_it_was_turned_on()
         {
-            Assert.False(_tv.TurnOff());
+            _tv.TurnOn();
+            var turnOn = _tv.TurnOn();
+
+            Assert.False(turnOn);
+            Assert.That(_defaultStateTurnedOn, Is.EqualTo(_tv.Info()).NoClip);
+        }
+        
+        [Test]
+        public void TurnOff_should_return_true_TV_was_turned_on()
+        {
+            _tv.TurnOn();
+            
+            var turnedOff = _tv.TurnOff();
+            
+            Assert.True(turnedOff);
             Assert.That(_defaultStateTurnedOff, Is.EqualTo(_tv.Info()).NoClip);
-            Assert.True(_tv.TurnOn());
-            Assert.That(_defaultStateTurnedOn, Is.EqualTo(_tv.Info()).NoClip);
-            Assert.True(_tv.TurnOff());
+        }
+        
+        [Test]
+        public void TurnOff_should_true_on_the_TV_if_it_was_turned_on()
+        {
+            _tv.TurnOn();
+            
+            var turnedOff=  _tv.TurnOff();
+            var info = _tv.Info();
+            
+            Assert.True(turnedOff);
+            Assert.That(_defaultStateTurnedOff, Is.EqualTo(info).NoClip);
+        }
+        
+        
+        [Test]
+        public void TurnOff_should_return_false_on_the_TV_if_it_was_turned_off()
+        {
+            var turnOff = _tv.TurnOff();
+
+            Assert.False(turnOff);
             Assert.That(_defaultStateTurnedOff, Is.EqualTo(_tv.Info()).NoClip);
+        }
+        
+        [Test]
+        public void AddChannel_the_channel_will_not_be_added_if_the_number_is_busy()
+        {
+            _tv.TurnOn();
+
+            var channelAdded = _tv.AddChannel(_channel);
+            
+            Assert.False(channelAdded);
         }
 
         [Test]
-        public void AddChannel_the_channel_will_not_be_added_if_the_number_is_busy_or_the_TV_is_turned_off()
+        public void AddChannel_the_channel_will_not_be_added_if_the_TV_is_turned_off()
         {
-            Assert.False(_tv.AddChannel(_channel));
-            Assert.True(_tv.TurnOn());
-            Assert.False(_tv.AddChannel(_channel));
+            var channelAdded = _tv.AddChannel(_channel);
+            
+            Assert.False(channelAdded);
         }
-
+        
         [Test]
         public void AddChannel_there_will_be_an_exception_when_trying_to_add_a_channel_with_an_empty_name()
         {
+            _tv.TurnOn();
             var channel = new KeyValuePair<ushort, string>(12, "");
 
-            var channel2 = new KeyValuePair<ushort, string>(12, null);
-
-            
-            Assert.True(_tv.TurnOn());
-            Assert.That(_defaultStateTurnedOn, Is.EqualTo(_tv.Info()).NoClip);
             Assert.Throws<ArgumentException>(() => { _tv.AddChannel(channel); });
-            Assert.Throws<ArgumentException>(() => { _tv.AddChannel(channel2); });
         }
 
         [Test]
-        public void AddChannel_the_channel_will_be_added_if_the_number_is_not_busy_and_the_name_is_not_empty()
+        public void AddChannel_there_will_be_an_exception_when_trying_to_add_a_channel_without_a_name()
         {
-            Assert.True(_tv.TurnOn());
-            Assert.True(_tv.AddChannel(_channel2));
+            _tv.TurnOn();
+            var channel = new KeyValuePair<ushort, string>(12, null);
+
+            Assert.Throws<ArgumentException>(() => { _tv.AddChannel(channel); });
+        }
+        
+        [Test]
+        public void AddChannel_on_successful_channel_addition_should_return_true()
+        {
+            _tv.TurnOn();
+
+            var channelAdded = _tv.AddChannel(_channel2);
+            
+            Assert.True(channelAdded);
         }
 
         [Test]
-        public void SelectChannel_should_return_false_if_there_is_no_channel_or_the_TV_is_turned_off()
+        public void SelectChannel_should_return_false_if_there_is_no_channel()
         {
-            Assert.False(_tv.SelectChannel(_channel2.Key));
-            Assert.True(_tv.TurnOn());
-            Assert.False(_tv.SelectChannel(_channel2.Key));
+            _tv.TurnOn();
+            var channelSelected = _tv.SelectChannel(_channel2.Key);
+            
+            Assert.False(channelSelected);
+            Assert.That(_defaultStateTurnedOn, Is.EqualTo(_tv.Info()).NoClip);
         }
 
         [Test]
-        public void SelectChannel_should_return_true_if_there_is_no_channel_or_the_TV_is_turned_off()
+        public void SelectChannel_should_return_false_if_the_TV_is_turned_off()
         {
-            Assert.False(_tv.SelectChannel(_channel2.Key));
-            Assert.True(_tv.TurnOn());
-            Assert.False(_tv.SelectChannel(_channel2.Key));
+            var channelSelected = _tv.SelectChannel(_channel.Key);
+            
+            Assert.False(channelSelected);
+            Assert.That(_defaultStateTurnedOff, Is.EqualTo(_tv.Info()).NoClip);
         }
+        
+        [Test]
+        public void SelectChannel_should_return_true_if_the_channel_is_available_and_the_TV_is_on()
+        {
+            _tv.TurnOn();
+            
+            var channelSelected = _tv.SelectChannel(_channel.Key);
+            
+            Assert.True(channelSelected);
+            Assert.That(_defaultStateTurnedOn, Is.EqualTo(_tv.Info()).NoClip);
+        }
+
+
 
         [Test]
-        public void SelectChannel_should_return_true_if_the_channel_is_available()
+        public void RemoveChannel_the_channel_should_not_be_deleted_if_the_TV_is_turned_off()
         {
-            Assert.True(_tv.TurnOn());
-            Assert.True(_tv.SelectChannel(_channel.Key));
-            Assert.True(_tv.AddChannel(_channel2));
-            Assert.True(_tv.SelectChannel(_channel2.Key));
-            Assert.That($"Tv turned on: True\nSelected TV channel: {_channel2.Key}-{_channel2.Value}",
-                Is.EqualTo(_tv.Info()).NoClip);
+            _tv.AddChannel(_channel2);
+            
+            var channelRemoved = _tv.RemoveChannel(_channel2.Key);
+            
+            Assert.False(channelRemoved);
+            Assert.That(_defaultStateTurnedOff, Is.EqualTo(_tv.Info()).NoClip);
         }
-
+        
         [Test]
-        public void RemoveChannel_the_channel_should_not_be_deleted_if_the_TV_is_turned_off_or_it_is_not_in_the_list()
+        public void RemoveChannel_the_channel_should_not_be_deleted_if_it_is_not_in_the_list()
         {
-            Assert.False(_tv.RemoveChannel(_channel.Key));
-            Assert.True(_tv.TurnOn());
-            Assert.False(_tv.SelectChannel(_channel2.Key));
+            _tv.TurnOn();
+            
+            var channelRemoved = _tv.RemoveChannel(_channel2.Key);
+            
+            Assert.False(channelRemoved);
+            Assert.That(_defaultStateTurnedOn, Is.EqualTo(_tv.Info()).NoClip);
         }
-
+        
         [Test]
         public void RemoveChannel_channel_should_not_be_deleted_if_currently_selected()
         {
-            Assert.True(_tv.TurnOn());
-            Assert.False(_tv.RemoveChannel(_channel.Key));
-            Assert.True(_tv.AddChannel(_channel2));
-            Assert.False(_tv.RemoveChannel(_channel.Key));
-            Assert.True(_tv.SelectChannel(_channel2.Key));
-            Assert.False(_tv.RemoveChannel(_channel2.Key));
+            _tv.TurnOn();
+            
+            var channelRemoved = _tv.RemoveChannel(_channel.Key);
+            
+            Assert.False(channelRemoved);
+            Assert.That(_defaultStateTurnedOn, Is.EqualTo(_tv.Info()).NoClip);
         }
 
         [Test]
         public void RemoveChannel_the_channel_should_be_deleted_if_the_TV_is_on_and_not_selected()
         {
-            Assert.True(_tv.TurnOn());
-            Assert.True(_tv.AddChannel(_channel2));
-            Assert.True(_tv.SelectChannel(_channel2.Key));
-            Assert.True(_tv.RemoveChannel(_channel.Key));
-            Assert.True(_tv.AddChannel(_channel));
-            Assert.True(_tv.SelectChannel(_channel.Key));
-            Assert.True(_tv.RemoveChannel(_channel2.Key));
+            _tv.TurnOn();
+            _tv.AddChannel(_channel2);
+            
+            var channelRemoved = _tv.RemoveChannel(_channel2.Key);
+            
+            Assert.True(channelRemoved);
+            Assert.That(_defaultStateTurnedOn, Is.EqualTo(_tv.Info()).NoClip);
+        }
+        
+        // NEW
+        [Test]
+        public void RemoveChannel_the_old_channel_can_be_deleted()
+        {
+            _tv.TurnOn();
+            _tv.AddChannel(_channel2);
+            _tv.SelectChannel(_channel2.Key);
+            
+            var channelRemoved = _tv.RemoveChannel(_channel.Key);
+            
+            Assert.True(channelRemoved);
+            Assert.That($"Tv turned on: True\nSelected TV channel: {_channel2.Key}-{_channel2.Value}", Is.EqualTo(_tv.Info()).NoClip);
+        }
+
+        // NEW
+        [Test]
+        public void SelectChannel_the_newly_created_channel_can_be_selected()
+        {
+            _tv.TurnOn();
+            _tv.AddChannel(_channel2);
+            
+            var channelSelected = _tv.SelectChannel(_channel2.Key);
+            Assert.True(channelSelected);
+            Assert.That($"Tv turned on: True\nSelected TV channel: {_channel2.Key}-{_channel2.Value}", Is.EqualTo(_tv.Info()).NoClip);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace tv_tests
             Assert.Throws<ArgumentException>(() =>
             {
                 var channel = new Dictionary<ushort, string>();
-                var tv = new Tv(channel);
+                var tv = new TV(channel);
             });
         }
         
@@ -29,7 +29,7 @@ namespace tv_tests
                     { 5, ""},
                     { 30, "STS"},
                 };
-                var tv = new Tv(channel);
+                var tv = new TV(channel);
             });
             
             Assert.Throws<ArgumentException>(() =>
@@ -40,7 +40,7 @@ namespace tv_tests
                     { 30, "STS"},
                     { 23, null}
                 };
-                var tv = new Tv(channel);
+                var tv = new TV(channel);
             });
         }
 
@@ -56,7 +56,7 @@ namespace tv_tests
             };
             var defaultState = $"Tv turned on: False\nSelected TV channel: 2-NTV";
             
-            var tv = new Tv(channel);
+            var tv = new TV(channel);
             
             Assert.That(defaultState, Is.EqualTo(tv.Info()).NoClip);
         }
